@@ -1,4 +1,7 @@
 # rice-hyperland-rahat5700
+```bash
+pkill waybar && omarchy-waybar &
+```
 
 ```bash
 nano ~/.config/waybar/config.jsonc
