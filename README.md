@@ -11,22 +11,32 @@ nano ~/.config/waybar/config.jsonc
         "layer": "top",
         "position": "top",
         "height": 34,
-        "modules-left": ["clock#time", "clock#date"],
-        "modules-right": ["tray", "pulseaudio", "network", "custom/power"],
-
+        "modules-left": ["clock#time", "clock#date", "hyprland/workspaces"],
+        "modules-right": ["tray", "pulseaudio", "network", "custom/poweroff"],
         "clock#time": {
-            "format": "{:%H:%M   %H:%M}"
+            "format": "{:%H:%M}"
         },
         "clock#date": {
             "format": "{:%a %b %d}"
         },
-        "custom/power": {
+        "hyprland/workspaces": {
+            "format": "{icon}",
+            "format-icons": {
+                "active": "●",
+                "default": "○"
+            },
+            "persistent-workspaces": {
+                "*": 5
+            },
+            "on-click": "activate"
+        },
+        "custom/poweroff": {
             "format": "⏻",
-            "on-click": "omarchy-menu power", // Uses Omarchy's built-in power menu
-            "tooltip": false
+            "on-click": "systemctl poweroff",
+            "tooltip-format": "Power Off",
+            "tooltip": true
         }
     },
-
     // LEFT BAR (Launcher)
     {
         "name": "left-bar",
@@ -34,11 +44,17 @@ nano ~/.config/waybar/config.jsonc
         "position": "left",
         "width": 55,
         "modules-left": ["wlr/taskbar"],
-
+        "modules-right": ["custom/appmenu"],
         "wlr/taskbar": {
             "format": "{icon}",
             "icon-size": 28,
             "on-click": "activate"
+        },
+        "custom/appmenu": {
+            "format": "",
+            "on-click": "omarchy-menu app",
+            "tooltip-format": "Application Menu",
+            "tooltip": true
         }
     }
 ]
