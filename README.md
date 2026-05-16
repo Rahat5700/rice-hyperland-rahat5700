@@ -7,7 +7,6 @@ pkill waybar && omarchy-waybar &
 nano ~/.config/waybar/config.jsonc
 ```
 ```bash
-
 [
   {
     "name": "top-bar",
@@ -242,11 +241,6 @@ nano ~/.config/waybar/config.jsonc
     "width": 26,
     "spacing": 0,
     "modules-left": [
-      "custom/omarchy-app1",
-      "custom/omarchy-app2",
-      "custom/omarchy-app3",
-      "custom/omarchy-app4",
-      "custom/omarchy-app5",
       "wlr/taskbar"
     ],
     "modules-right": [
@@ -256,31 +250,6 @@ nano ~/.config/waybar/config.jsonc
       "format": "{icon}",
       "icon-size": 18,
       "on-click": "activate"
-    },
-    "custom/omarchy-app1": {
-      "format": "󰣆",
-      "on-click": "omarchy-launch-wifi",
-      "tooltip-format": "Omarchy Network Connection"
-    },
-    "custom/omarchy-app2": {
-      "format": "󰀻",
-      "on-click": "omarchy-launch-bluetooth",
-      "tooltip-format": "Omarchy Bluetooth Settings"
-    },
-    "custom/omarchy-app3": {
-      "format": "󰠮",
-      "on-click": "omarchy-launch-audio",
-      "tooltip-format": "Omarchy Audio Controller"
-    },
-    "custom/omarchy-app4": {
-      "format": "󰎆",
-      "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
-      "tooltip-format": "Omarchy Timezone Select"
-    },
-    "custom/omarchy-app5": {
-      "format": "󰙯",
-      "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
-      "tooltip-format": "Omarchy System Updates"
     },
     "custom/omarchy": {
       "format": "<span font='omarchy'>\ue900</span>",
@@ -425,11 +394,6 @@ window#waybar.left .modules-right {
 }
 
 /* Specific module centering in the left bar */
-window#waybar.left #custom-omarchy-app1,
-window#waybar.left #custom-omarchy-app2,
-window#waybar.left #custom-omarchy-app3,
-window#waybar.left #custom-omarchy-app4,
-window#waybar.left #custom-omarchy-app5,
 window#waybar.left #taskbar,
 window#waybar.left #custom-omarchy {
     margin-left: 0;
@@ -459,16 +423,6 @@ window#waybar.left label {
     font-size: 14px;
 }
 
-/* App Icons styling */
-#custom-omarchy-app1, 
-#custom-omarchy-app2, 
-#custom-omarchy-app3, 
-#custom-omarchy-app4, 
-#custom-omarchy-app5 {
-    font-size: 16px;
-    color: @foreground;
-}
-
 /* Top Bar Spacing */
 #clock {
     margin-left: 12px;
@@ -477,4 +431,5 @@ window#waybar.left label {
 #custom-weather {
     margin-left: 8px;
 }
+
 ```
