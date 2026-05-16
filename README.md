@@ -377,59 +377,72 @@ tooltip {
   color: #a55555;
 }
 
-/* --- Left Bar Centering Refinements --- */
-window#waybar.left {
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Force all modules in the left bar to center and ignore global horizontal margins */
-window#waybar.left .modules-left,
-window#waybar.left .modules-center,
-window#waybar.left .modules-right {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center horizontally in the vertical stack */
-}
-
-/* Specific module centering in the left bar */
-window#waybar.left #taskbar,
-window#waybar.left #custom-omarchy {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding: 0;
-    min-width: 26px; /* Fill the bar width */
-    text-align: center;
-}
-
-/* Ensure icons inside custom modules are centered */
-window#waybar.left label {
-    margin: 0 auto;
-}
-
-/* Taskbar Button Alignment */
-#taskbar button {
-    padding: 4px 0;
-    margin: 2px 0;
-    min-width: 26px;
-}
-
-/* Launcher at the very bottom */
-#custom-omarchy {
-    margin-bottom: 8px;
-    font-size: 14px;
-}
-
-/* Top Bar Spacing */
+/* Ensure the clock on the left of the top bar has some spacing */
 #clock {
     margin-left: 12px;
 }
 
+/* Adjustments for modules moved to the right */
 #custom-weather {
     margin-left: 8px;
 }
 
+/* ========================================================================= */
+/* VERTICAL LEFT BAR STYLING                         */
+/* ========================================================================= */
+
+window#waybar.left {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Override global margins and center the vertical stacks layout containers */
+window#waybar.left .modules-left,
+window#waybar.left .modules-center,
+window#waybar.left .modules-right {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+}
+
+/* Center the core taskbar container within the bar width */
+window#waybar.left #taskbar {
+    margin-top: 8px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Taskbar Item Centering Refinements */
+window#waybar.left #taskbar button {
+    all: unset;
+    padding: 6px 0;
+    margin: 2px 0;
+    min-width: 26px; /* Spans across the entire layout bar width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Explicitly center the images or text inside the buttons */
+window#waybar.left #taskbar button image,
+window#waybar.left #taskbar button label {
+    margin: 0 auto;
+}
+
+/* Omarchy System Menu alignment at the bottom */
+window#waybar.left #custom-omarchy {
+    margin-bottom: 8px;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+    min-width: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 ```
